@@ -6,6 +6,9 @@ using namespace std;
 void Real ();
 void BayernMunich ();
 void Volga ();
+void Real2 ();
+void BayernMunich2 ();
+void Volga2 ();
 void Circle1 ();
 void Circle2 ();
 
@@ -13,10 +16,13 @@ int main()
 {
     txCreateWindow ( 1250, 600);
 
-    char komanda[20];
+    char komanda1[20];
+    char komanda2[20];
 
     cout << "Команда (1-Реал, 2-Бавария, 3-Волга)" << endl;
-    cin >> komanda;
+    cin >> komanda1;
+    cout << "Выберите противника (1-Реал, 2-Бавария, 3-Волга)" << endl;
+    cin >> komanda2;
 
     HDC FootballPole;
     FootballPole = txLoadImage ("FootballPole.bmp");
@@ -26,20 +32,40 @@ int main()
     txSetFillColor (TX_YELLOW);
     txSelectFont ("Arial", 50, 0, FW_BOLD);
 
-    if (strcmp(komanda, "1") == 0)
+    if (strcmp(komanda1, "1") == 0)
     {
         txTextOut (50, 550, "Real Madrid");
         Real ();
     }
-    else if (strcmp(komanda, "2") == 0)
+    else if (strcmp(komanda1, "2") == 0)
     {
         txTextOut (50, 550, "Bayren Munich");
         BayernMunich ();
     }
-    else if (strcmp(komanda, "3") == 0)
+    else if (strcmp(komanda1, "3") == 0)
     {
         txTextOut (50, 550, "Volga");
         Volga ();
+    }
+
+    if (strcmp(komanda1, komanda2) == 0)
+    {
+        //error;
+        return 0;
+    }
+
+
+    if (strcmp(komanda2, "1") == 0)
+    {
+        Real2 ();
+    }
+    else if (strcmp(komanda2, "2") == 0)
+    {
+        BayernMunich2 ();
+    }
+    else if (strcmp(komanda2, "3") == 0)
+    {
+        Volga2 ();
     }
 
 
@@ -100,10 +126,18 @@ int main()
 
 
     }
+    void Real2 ()
+    {
+    txSelectFont ("Arial", 50, 0, FW_BOLD);
+    txSetColor (TX_YELLOW);
+    txSetFillColor (TX_YELLOW);
+    txTextOut (550, 550, "Real Madrid");
+    Circle2 ();
+    }
 
     void BayernMunich ()
     {
-    txSelectFont ("Arial", 20, 0, FW_BOLD);
+   txSelectFont ("Arial", 20, 0, FW_BOLD);
     txSetColor (TX_YELLOW);
     txSetFillColor (TX_YELLOW);
 
@@ -124,7 +158,16 @@ int main()
     txSetColor (TX_BLUE);
     txSetFillColor (TX_BLUE);
 
+    }
+
+    void BayernMunich2 ()
+    {
+    txSelectFont ("Arial", 50, 0, FW_BOLD);
+    txSetColor (TX_YELLOW);
+    txSetFillColor (TX_YELLOW);
+    txTextOut (550, 550, "BayernMunich");
     Circle2 ();
+
     }
 
     void Volga ()
@@ -150,5 +193,15 @@ int main()
     txSetColor (TX_BLUE);
     txSetFillColor (TX_BLUE);
 
-   Circle2 ();
+
+    }
+
+    void Volga2 ()
+    {
+    txSelectFont ("Arial", 50, 0, FW_BOLD);
+    txSetColor (TX_YELLOW);
+    txSetFillColor (TX_YELLOW);
+    txTextOut (550, 550, "Volga");
+    Circle2 ();
+
     }
